@@ -1,0 +1,179 @@
+/*style start*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+.menu, a, button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+.menu {list-style: none;}
+.menu li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.menu li a {
+  transition: all .3s ease;
+}
+
+.menu a:hover {
+  color: #8d439c;
+}
+
+button {
+  padding: 9px 25px;
+  background:#8d439c;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all -3s ease;
+}
+
+/*UI Elements*/
+hr {
+  height: 3px;
+  background-color:#3c5252;
+  margin-right: 1cm;
+  margin-left: 1cm;
+  border-width: 0px;
+  }
+.slim {
+  height:1px;
+  background-color:CornflowerBlue;
+  margin-right: 3.5%;
+  margin-left: 3.5%;
+}
+div {
+  height: 300px;
+  border: 1px solid #000;
+  margin-left: 40px;
+  margin-right: 40px;
+  background-color: aliceblue;
+  border: none
+}
+html {
+  background-color: #181a21;
+  font-family: sans-serif;
+  color: #98abb2
+}
+#block_container { /* transparent */
+  display: flex;
+  justify-content: center;
+  background-color: #00000000;
+  border-color: #00000000;
+  height: auto;
+}
+input {
+  background: none;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  }
+input:hover {
+  background: none;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  }
+input:active {
+  background: none;
+  border: none;
+  color: #3c5252;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  }
+
+#rcorners {
+  border-radius: 10px;
+  border: 1px solid #181a21;
+  background-color: #282a36;
+  color: white;
+  padding: 2.5%;
+  width: 75%;
+  height: 1000px;
+  margin: 1cm;
+}
+.preview {
+  border: 0px;
+  width: 3.5cm;
+  height: 3.5cm;
+  overflow: hidden;
+  margin:auto;
+  position: relative;
+  background-color: #00000000;
+}
+.preview img{
+  height:inherit;
+  width:100%;
+}
+
+/* The overlay effect (full height and width) - lays on top of the container and over the image */
+.overlay {
+ position: absolute;
+ bottom: 0;
+ left: -30%;
+ right: 0;
+ background-color: #00000000;
+ overflow: hidden;
+ width: 100%;
+ height: 100%;
+ transform: scale(0);
+ transition: .3s ease;
+}
+
+/* When you mouse over the container, the overlay text will "zoom" in display */
+.preview:hover .overlay {
+ transform: scale(1);
+}
+.image {
+ color: white;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+}
+/*UI Elements*/
+
+/*header*/
+h1 {text-align: left; text-shadow: 4px 4px 0px #3c5252; font-size: 40px;}
+/*header*/
+
+/*paragraph*/
+p {font-size: 14px;}
+.serif {font-family: serif}
+.sans-serif {font-family: sans-serif}
+.monospace {font-family: monospace}
+.impact {font-family: sans-serif}
+.normal {font-style: normal}
+.italic {font-style: italic}
+.oblique {font-style: oblique}
+
+/*paragraph*/
+
+/*style end*/
