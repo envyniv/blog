@@ -19,7 +19,7 @@ day   = datetime.now().strftime("%d") #int(argv[3])
 
 posts = []
 for arg in argv:
-  if not ".json" in arg &&  not ".py" in arg && exists(arg):
+  if not (".json" in arg) and not (".py" in arg) and exists(arg):
     posts.append(arg)
 for post in posts:
   with open(post) as content: # get post title

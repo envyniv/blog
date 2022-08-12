@@ -8,11 +8,6 @@ alias edit="micro -filetype markdown"
 #DAY=`date +"%d"`
 
 BLOGINDEX="raw/post-index.json"
-
-MARKDOWNSH="./markdown.sh"
-
-TEMP_TAGS="/tmp/tags"
-
 # MAYBE: possibly port index-man.py to this
 FILE=`date +"%Y-%j_%k%M-%S"`
 edit raw/$FILE.md
@@ -33,7 +28,7 @@ if test -f "$FILE.md"; then
     echo "Something went wrong with the python script - Operation interrupted"
     exit 1
   fi
-  $MARKDOWNSH $FILE.md > baked/$FILE.html
+  perl ./Markdown.pl $FILE.md > baked/$FILE.html
   echo '<!DOCTYPE html><html><head><link href="baked/style.css" rel="stylesheet" type="text/css"></head><body>' | cat - baked/$FILE.html > temp && mv temp baked/$FILE.html
   echo "</body></html>" >>baked/$FILE.html
   rm latest.html #clear symlink

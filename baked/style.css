@@ -1,7 +1,14 @@
 /*style start*/
 
 html {background-color: #282a36; font-family: sans-serif; color: #98abb2}
-a{color: DarkBlue}
+a {
+  color: mediumslateblue;
+  text-decoration: dashed;
+}
+a:hover {
+  color: wheat;
+  transition: all .3s ease-in;
+}
 #block_container { /* transparent */
   display: flex;
   justify-content: center;
@@ -10,11 +17,29 @@ a{color: DarkBlue}
   height: auto;
 }
 
-h1 {text-align: left; text-shadow: 2px 2px 2px #68548a; font-size: 35px; color: #f1f1f1;}
-h2 {text-align: left; margin-left: 5%; font-size: 24px; color: CornflowerBlue}
+h1 {text-align: left; text-shadow: 2px 2px 2px #68548a; font-size: 35px; color: seashell;}
+h2 {text-align: left; margin-left: 5%; font-size: 24px;color: #b5c5cb}
 h3 {text-align: right}
-h4 {text-align: left; margin-left: 13%; color: CornflowerBlue}
+h4 {text-align: left; margin-left: 13%; color: #b5c5cb}
 h5 {text-align: justify}
+
+code {
+  color: yellowgreen;
+  background-color: #282a36;
+  font-size: 14px;
+  font-family: monospace;
+}
+pre {
+  border-radius: 2%;
+  background: #222;
+  color:olivedrab;
+  width: 65%;
+  padding: 3%;
+  font-size: 16px;
+  margin-left: 2%;
+  /* border-color: ; */
+  /* border-style: dashed; */
+}
 
 hr {
   height: 3px;

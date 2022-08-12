@@ -7,9 +7,6 @@ shopt -s expand_aliases extglob
 #MONTH=`date +"%m"`
 #DAY=`date +"%d"`
 BLOGINDEX="raw/post-index.json"
-
-MARKDOWNSH="./markdown.sh"
-
 FILE=${1//.md}
 FILE=${FILE//"raw/"}
 
@@ -19,7 +16,7 @@ if [ $? = 1 ]; then
   echo "Something went wrong with the python script - Operation interrupted"
   exit 1
 fi
-$MARKDOWNSH raw/$FILE.md > baked/$FILE.html
+perl ./Markdown.pl $FILE.md > baked/$FILE.html
 echo '<!DOCTYPE html><html><head><link href="baked/style.css" rel="stylesheet" type="text/css"></head><body>' | cat - baked/$FILE.html > temp && mv temp baked/$FILE.html
 echo "</body></html>" >>baked/$FILE.html
 rm latest.html #clear symlink
