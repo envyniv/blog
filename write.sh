@@ -17,6 +17,8 @@ echo "#
 
 ###### $YEAR $MONTH $DAY by [$AUTHOR](mailto:$EMAIL)
 
+_Post Synopsis Here_
+
 ---
 
 Your Text Here" >raw/$FILE.md

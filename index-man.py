@@ -43,7 +43,7 @@ with open(bkIndexFile, "w") as baked_index:
   for post in posts:
     with open(post, "a+") as content: # get post title
       title = content.readline().rstrip().replace("# ", "")
-
+      print(title)
       index = argv[1]
 
       json_file = open(index, "r+")
