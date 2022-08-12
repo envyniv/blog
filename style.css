@@ -1,9 +1,9 @@
 /*style start*/
 
-* {
+.menu, a, li, button {
   box-sizing: border-box;
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 .menu, a, button {
@@ -16,7 +16,7 @@
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 30px 10%;
 }
@@ -35,41 +35,25 @@ header {
   color: #8d439c;
 }
 
-button {
-  padding: 9px 25px;
-  background:#8d439c;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all -3s ease;
+.bg {
+  /* The image used */
+  background-image: url("https://raw.githubusercontent.com/envyniv/envyniv/master/banner.png");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Needed to position the navbar */
+  position: relative;
 }
 
-/*UI Elements*/
-hr {
-  height: 3px;
-  background-color:#3c5252;
-  margin-right: 1cm;
-  margin-left: 1cm;
-  border-width: 0px;
-  }
-.slim {
-  height:1px;
-  background-color:CornflowerBlue;
-  margin-right: 3.5%;
-  margin-left: 3.5%;
+p a {
+  color: mediumslateblue;
+  text-decoration: dashed;
+  font-size: 16px;
 }
-div {
-  height: 300px;
-  border: 1px solid #000;
-  margin-left: 40px;
-  margin-right: 40px;
-  background-color: aliceblue;
-  border: none
-}
-html {
-  background-color: #181a21;
-  font-family: sans-serif;
-  color: #98abb2
+p a:hover {
+  color: wheat;
+  transition: all .3s ease-in;
 }
 #block_container { /* transparent */
   display: flex;
@@ -78,45 +62,148 @@ html {
   border-color: #00000000;
   height: auto;
 }
-input {
-  background: none;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
+
+h1 {text-align: left; text-shadow: 2px 2px 2px #68548a; font-size: 35px; color: seashell;}
+#rcorners h2 {text-align: left; margin-left: 5%; font-size: 24px;color: #b5c5cb}
+#rcorners h3 {text-align: right}
+#rcorners h4 {text-align: left; margin-left: 13%; color: #b5c5cb}
+#rcorners h5 {text-align: justify}
+
+code {
+  color: yellowgreen;
+  background-color: #3a3d48;
+  font-size: 14px;
+  font-family: monospace;
+}
+pre {
+  border-radius: 2%;
+  background: #19190b;
+  color:olivedrab;
+  /* width: 100%; */
+  padding: 3%;
   font-size: 16px;
-  }
-input:hover {
-  background: none;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: bold;
-  }
-input:active {
-  background: none;
-  border: none;
-  color: #3c5252;
-  padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: bold;
+  margin-left: 2.5%;
+  margin-right: auto;
+}
+
+hr {
+  height: 3px;
+  background-color:#68548a;
+  margin-right: 1cm;
+  margin-left: 1cm;
+  border-width: 0px;
   }
 
-#rcorners {
-  border-radius: 10px;
-  border: 1px solid #181a21;
-  background-color: #282a36;
+.preview {
+  border: 0px;
+  width: 3.5cm;
+  height: 3.5cm;
+  overflow: hidden;
+  margin:auto;
+  position: relative;
+  background-color: #00000000;
+}
+.preview img{
+  height:inherit;
+  width:100%;
+}
+
+/* The overlay effect (full height and width) - lays on top of the container and over the image */
+.overlay {
+ position: absolute;
+ bottom: 0;
+ left: -30%;
+ right: 0;
+ background-color: #00000000;
+ overflow: hidden;
+ width: 100%;
+ height: 100%;
+ transform: scale(0);
+ transition: .3s ease;
+}
+
+/* When you mouse over the container, the overlay text will "zoom" in display */
+.preview:hover .overlay {
+ transform: scale(1);
+}
+.image {
+ color: white;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+}
+
+ /* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
   color: white;
-  padding: 2.5%;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+
+/*UI Elements*/
+html {
+  background-color: #000000;
+  font-family: sans-serif;
+  color: #98abb2
+}
+
+#block_container { /* transparent */
+  display: flex;
+  justify-content: center;
+  background-color: #00000000;
+  border-color: #00000000;
+  height: auto;
+}
+
+#rcorners {
+  border-radius: 2%;
+  border: 1px solid #181a21;
+  background-color: #181a21;
+  color: white;
+  padding: 3%;
   width: 75%;
-  height: 1000px;
-  margin: 1cm;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2cm;
 }
 .preview {
   border: 0px;
@@ -160,20 +247,22 @@ input:active {
 }
 /*UI Elements*/
 
-/*header*/
-h1 {text-align: left; text-shadow: 4px 4px 0px #3c5252; font-size: 40px;}
-/*header*/
-
 /*paragraph*/
-p {font-size: 14px;}
-.serif {font-family: serif}
-.sans-serif {font-family: sans-serif}
-.monospace {font-family: monospace}
-.impact {font-family: sans-serif}
-.normal {font-style: normal}
-.italic {font-style: italic}
-.oblique {font-style: oblique}
+p {
+  font-size: 16px;
+  color: #98abb2;
+}
+.grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
 
-/*paragraph*/
-
-/*style end*/
+.grid > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}

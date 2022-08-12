@@ -1,5 +1,7 @@
 # Assembly Basics ITA
 
+###### 2022 08 12 by [envyniv](mailto:envy67@protonmail.ch)
+
 The following is a document originally made to help some classmates of mine understand the assembly language a bit better (and it also serves the purpose of notes in my case); if you somehow stumble upon this, please leave this page and move on with your day.
 
 Per il resto di voi coglioni:
