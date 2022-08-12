@@ -23,7 +23,6 @@ Your Text Here" >raw/$FILE.md
 
 edit raw/$FILE.md
 if test -f "$FILE.md"; then
-  clear
   echo "Write tags, separated by a space. Hyphens in tags will be seen as spaces on the website."
   read -e -p "TAGS > " TAGS
   #IFS=" " read -e -p "TAGS > " -ra TAGS

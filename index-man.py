@@ -41,12 +41,12 @@ for post in posts:
           dict["date"][y][m][d] = {}  #YYYYYMCA
     dict["date"][y][m][d][title] = post
     content.write("---\n\n>#### tags : ")
-    for i in tags:
-      i = i.replace("\n","")
-      if i not in dict:
-        dict["tags"][i] = {}
-      dict["tags"][i][title] = post
-      content.write("[%s](post-index.html#%s) " % (i, i))
+    for tag in tags:
+      tag = tag.replace("\n","")
+      if tag not in dict:
+        dict["tags"][tag] = {}
+      dict["tags"][tag][title] = post
+      content.write("[{e}](post-index.html#%{e}) ".format(e=tag))
     content.write("\n\n")
 
     content.close()
@@ -64,24 +64,25 @@ for post in posts:
 <!DOCTYPE html>
 <html>
   <head>
-    <title>%s</title>
+    <title>{pagetitle}</title>
     <link rel=icon type='image/svg+xml' href=favicon.svg>
     <link rel=icon 'type=image/png' href=favicon.png>
     <link href=style.css rel=stylesheet type='text/css'>
   </head>
   <body>
     <embed type='text/html' src=header.html width="100%" height=250px>
-    <h1>POST INDEX</h1>\n\n
-        """ % (title))
+    <h1>POST INDEX</h1>
+
+""".format(pagetitle=title))
       baked_index.write("<h2><a name=>By Date</a></h2>")                                       #BY DATE
       for year in dict["date"]:
-        baked_index.write("<h3><a name=%s>%s</a></h3>" % (year, year))                  # 2022
+        baked_index.write("<h3><a name={yearhere}>{yearhere}</a></h3>".format(yearhere=year))                  # 2022
         for month in dict["date"][year]:
-          monthString = datetime(int(year), int(month), int(day)).strftime("%B")        #  January, February
+          monthString = datetime(int(y), int(m), int(d)).strftime("%B")        #  January, February
           baked_index.write("<h3><a name=%s-%s>%s</a></h3>" % (year, month, monthString))
           baked_index.write("<div class=grid>")
           for day in dict["date"][year][month]:
-            dayString = datetime(int(year), int(month), int(day)).strftime("%A")        #   Monday, tue, etc.
+            dayString = datetime(int(y), int(m), int(d)).strftime("%A")        #   Monday, tue, etc.
             baked_index.write("<div><h3><a name=%s-%s-%s>%s</a></h3>" % (year, month, day, dayString))
             baked_index.write("<ul>")
             for post in dict["date"][year][month][day]:
@@ -91,12 +92,12 @@ for post in posts:
           baked_index.write("</div>")
       baked_index.write("<h2><a name=TAGS>Tags</a></h2>")       
       for tag in dict["tags"]:
-        baked_index.write("<h2><a name=%s>%s</a></h2>\n" % (tag, tag))
+        baked_index.write("<h2><a name={name}>{name}</a></h2>\n".format(name=tag))
         if "💌" in dict["tags"][tag]:
           baked_index.write("<p>%s</p>" % (dict["tags"][tag]["💌"]))
         baked_index.write("<div class=grid>")
         for post in dict["tags"][tag]:
-          baked_index.write("<div><a href='%s'>%s</a></div>" % (post, dict["tags"][tag][post].replace(".md", ".html").replace("raw/", "baked/"), post))
+          baked_index.write("<div><a href='%s'>%s</a></div>" % (dict["tags"][tag][post].replace(".md", ".html").replace("raw/", "baked/"), post))
         baked_index.write("</div>")
       baked_index.write("</html>")
       baked_index.close()
