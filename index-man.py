@@ -73,23 +73,23 @@ for post in posts:
     <embed type='text/html' src=header.html width="100%" height=250px>
     <h1>POST INDEX</h1>\n\n
         """ % (title))
-      baked_index.write("<h2><a>By Date</a></h2>")                                       #BY DATE
+      baked_index.write("<h2><a name=>By Date</a></h2>")                                       #BY DATE
       for year in dict["date"]:
         baked_index.write("<h3><a name=%s>%s</a></h3>" % (year, year))                  # 2022
         for month in dict["date"][year]:
           monthString = datetime(int(year), int(month), int(day)).strftime("%B")        #  January, February
-          baked_index.write("<h3><a name=%s>%s</a></h3>" % (month, monthString))
+          baked_index.write("<h3><a name=%s-%s>%s</a></h3>" % (year, month, monthString))
           baked_index.write("<div class=grid>")
           for day in dict["date"][year][month]:
             dayString = datetime(int(year), int(month), int(day)).strftime("%A")        #   Monday, tue, etc.
-            baked_index.write("<div><h3><a name=%s>%s</a></h3>" % (day, dayString))
+            baked_index.write("<div><h3><a name=%s-%s-%s>%s</a></h3>" % (year, month, day, dayString))
             baked_index.write("<ul>")
             for post in dict["date"][year][month][day]:
               "<li><a href=%s>%s</a></li>" % (dict["date"][year][month][day][post],post)#    I made this post today
             baked_index.write("</ul>")
             baked_index.write("</div>")
           baked_index.write("</div>")
-              
+      baked_index.write("<h2><a name=TAGS>Tags</a></h2>")       
       for tag in dict["tags"]:
         baked_index.write("<h2><a name=%s>%s</a></h2>\n" % (tag, tag))
         if "💌" in dict["tags"][tag]:

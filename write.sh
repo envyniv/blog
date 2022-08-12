@@ -13,13 +13,13 @@ EMAIL=`git config --get user.email`
 BLOGINDEX="raw/post-index.json"
 # MAYBE: possibly port index-man.py to this
 FILE=`date +"%Y-%j_%k%M-%S"`
-echo '# 
+echo "# 
 
 ###### $YEAR $MONTH $DAY by [$AUTHOR](mailto:$EMAIL)
 
 ---
 
-Your Text Here' >raw/$FILE.md
+Your Text Here" >raw/$FILE.md
 
 edit raw/$FILE.md
 if test -f "$FILE.md"; then
