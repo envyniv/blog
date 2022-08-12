@@ -1,0 +1,113 @@
+<!DOCTYPE html><html><head><link href="baked/style.css" rel="stylesheet" type="text/css"></head><body>
+<h1 id="TIL">TIL: How to bodge a blog from scratch</h1>
+
+<p>
+Hello, and welcome to the first serious post on this blog of mine! I'm gonna cut to the chase and talk a bit about the behind the scenes.
+</p>
+
+<p>
+I've been wanting to make a blog for some time, mainly to publish notes and give out updates on my projects.
+</p>
+
+<p>
+But everytime i looked up stuff like <code>how 2 setuPP jekyll with my poopoo html</code> i was put off by the tutorials. Heck, I tried following one and it just didn't work.
+</p>
+
+<p>
+Another thing i dislike about Stuff like Hugo and Jekyll is that, to run them, a standalone webserver is needed.
+</p>
+
+<p>
+And, while, yes I do have the technical skills to set one up (It really isn't hard, at all.) I just felt that a webserver for my shitty blog would be overkill.
+</p>
+
+<p>
+(Also I'd need to set up stuff on GitHub, which annoys me.)
+</p>
+
+<p>
+So, I thought of parsing Markdown files into html and then showing those.
+</p>
+
+<p>
+"It would only require a script and some time" - I thought to myself.
+</p>
+
+<p>
+And I was... <em>somewhat</em> right, actually.
+</p>
+
+<p>
+Why somewhat? because i can't <code>bash</code> were it for the life of me.
+</p>
+
+<p>
+It's just... so unnatural to me. The problem mainly arose when i got to parsing a JSON into a dictionary, and found out that bash doesn't have those.
+</p>
+
+<p>
+So, being a python shill, that's what i went with;
+</p>
+
+<p>
+And that's why the write script calls <code>python3 index-man.py</code>, because I felt that learning <a href="https://linuxhint.com/associative<em>array</em>bash"><em>Associative Arrays</em></a> were too much of an issue for something supposed to be a quick bodge.
+</p>
+
+<p>
+I also initially wanted to parse markdown myself, but got lazy and opted for <a href="https://github.com/chadbraunduin/markdown.bash/">markdown.bash</a>
+</p>
+
+<p>
+I plan on eventually<sup>TM</sup> porting <code>index-man</code> into bash, but for now...
+</p>
+
+<p>
+I'll just focus on fixing my website. And maybe keep working on <a href="https://envyniv.github.io/Project-Hope/">Last Hope</a>.
+</p>
+
+<p>
+<strike>Hopefully those two html tags i used for a joke don't break the whole thing</strike>
+</p>
+
+<h2 id="Edit">Edit</h2>
+
+<p>
+Funnily enough, as soon as I saved and wrote tags, the whole thing broke. Turns out I didn't write the script I use in my aliases properly. Should be fixed.
+</p>
+
+<h2 id="Edit 2">Edit 2</h2>
+
+<p>
+Above happened 15 more times. I hate everything
+</p>
+
+<h2 id="Edit 3">Edit 3</h2>
+
+<p>
+Refactoring some stuff - I think i broke something
+</p>
+<pre></code>
+{
+  "tags": {
+"til": {
+  "{": "raw/post-index.json"
+},
+"blog": {
+  "{": "raw/post-index.json"
+},
+"test": {
+  "{": "raw/post-index.json"
+}
+  },
+  "by-year": {
+"&lt;attribute 'year' of 'datetime.date' objects&gt;": {
+  "&lt;attribute 'month' of 'datetime.date' objects&gt;": {
+    "&lt;attribute 'day' of 'datetime.date' objects&gt;": {
+      "{": "raw/post-index.json"
+    }
+  }
+}
+  }
+}
+</code></pre>
+🤔</body></html>
