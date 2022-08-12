@@ -11,7 +11,7 @@ from copy import deepcopy
 # TODO: fix title
 
 bkIndexFile = "baked/post-index.html"
-bkIndexJS   = "baked/post-index.js"
+
 stylefile   = "style.css"
 
 y  = datetime.now().strftime("%Y") #int(argv[1])
