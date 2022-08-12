@@ -1,7 +1,7 @@
 #!/bin/sh
 
 shopt -s expand_aliases extglob
-alias edit="micro -filetype markdown"
+alias edit="micro -filetype markdown +1:3"
 #Envy's blog editing utility
 YEAR=`date +"%Y"`
 MONTH=`date +"%m"`
@@ -14,7 +14,7 @@ BLOGINDEX="raw/post-index.json"
 # MAYBE: possibly port index-man.py to this
 FILE=`date +"%Y-%j_%k%M-%S"`
 echo "# \n\n###### $YEAR $MONTH $DAY by [$AUTHOR](mailto:$EMAIL)\n\n---\n\nYour Text Here" >raw/$FILE.md
-edit raw/$FILE.md:1:3
+edit raw/$FILE.md
 if test -f "$FILE.md"; then
   clear
   echo "Write tags, separated by a space. Hyphens in tags will be seen as spaces on the website."
