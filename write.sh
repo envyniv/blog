@@ -34,8 +34,22 @@ if test -f "$FILE.md"; then
     exit 1
   fi
   perl ./Markdown.pl raw/$FILE.md > baked/$FILE.html
-  echo "<!DOCTYPE html><html><head><title>$TITLE</title><link rel=icon type='image/svg+xml' href=favicon.svg><link rel=icon 'type=image/png' href=favicon.png><link href=style.css rel=stylesheet type='text/css'></head><body><embed type='text/html' src=header.html width=100% height=250px><div id=rcorners>" | cat - baked/$FILE.html > temp && mv temp baked/$FILE.html
-  echo '</div><embed type="text/html" src=footer.html width=100% height=100%></body></html>' >>baked/$FILE.html
+ echo "
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>$TITLE</title>
+    <link rel=icon type='image/svg+xml' href=favicon.svg>
+    <link rel=icon 'type=image/png' href=favicon.png>
+    <link href=style.css rel=stylesheet type='text/css'>
+  </head>
+  <body>
+    <embed type='text/html' src=header.html width=100% height=250px>
+    <div id=rcorners>" | cat - baked/$FILE.html > temp && mv temp baked/$FILE.html
+echo '    </div>
+    <embed type="text/html" src=footer.html width=100% height=100%>
+  </body>
+</html>' >>baked/$FILE.html
   rm index.html #clear symlink
   ln -s baked/$FILEBAKE.html index.html
 else
