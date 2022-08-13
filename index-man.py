@@ -85,9 +85,9 @@ with open(bkIndexFile, "w") as baked_index:
             baked_index.write("<div><b><a name=%s-%s-%s>%s %s</a></b>" % (year, month, day, dayString, day))
             baked_index.write("<ul>")
 
-            for post in dict["date"][year][month][day]:
+            for entry in dict["date"][year][month][day]:
 
-              baked_index.write("<li><a href=%s>%s</a></li>" % (dict["date"][year][month][day][post].replace(".md", ".html").removeprefix("raw/"),title))
+              baked_index.write("<li><a href=%s>%s</a></li>" % (dict["date"][year][month][day][entry].replace(".md", ".html").removeprefix("raw/"), entry))
 
             baked_index.write("</ul>")
             baked_index.write("</div>")
@@ -101,8 +101,8 @@ with open(bkIndexFile, "w") as baked_index:
         if "💌" in dict["tags"][tag]:
           baked_index.write("<p>%s</p>" % (dict["tags"][tag]["💌"]))
         baked_index.write("<div class=grid>")
-        for post in dict["tags"][tag]:
-          baked_index.write("<div><a href='%s'>%s</a></div>" % (dict["tags"][tag][post].replace(".md", ".html").removeprefix("raw/"), title))
+        for entry in dict["tags"][tag]:
+          baked_index.write("<div><a href='%s'>%s</a></div>" % (dict["tags"][tag][entry].replace(".md", ".html").removeprefix("raw/"), entry))
         baked_index.write("</div>")
       baked_index.write("</html>")
       baked_index.close()
