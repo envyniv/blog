@@ -35,10 +35,11 @@ with open(bkIndexFile, "w") as baked_index:
   """)
   for post in posts:
     with open(post, 'r') as file:
-      title = file.readline()#.replace('# ', "")
+      title = file.readline().rstrip().removeprefix("# ")
       file.close()
-    with open(post, "a") as file:
       print("Title is {a}, file is {e}".format(a=title, e=post))
+    with open(post, "a") as file:
+      
       index = argv[1]
 
       json_file = open(index, "r+")
