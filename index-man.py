@@ -5,8 +5,6 @@ import json
 from datetime import datetime
 from os.path import exists
 
-# TODO: fix title, line 29
-
 bkIndexFile = "baked/post-index.html"
 
 stylefile   = "style.css"
@@ -36,8 +34,10 @@ with open(bkIndexFile, "w") as baked_index:
 
   """)
   for post in posts:
-    with open(post, "a+") as content: # get post title
-      title = content.readline().rstrip().replace("# ", "")
+    with open(post, "r") as file:
+      title = file.readline().replace('# ', "")
+      file.close()
+    with open(post, "a") as file:
       print("Title is {a}, file is {e}".format(a=title, e=post))
       index = argv[1]
 
@@ -52,16 +52,16 @@ with open(bkIndexFile, "w") as baked_index:
           if d not in dict["date"][y][m]:
             dict["date"][y][m][d] = {}  #YYYYYMCA
       dict["date"][y][m][d][title] = post
-      content.write("---\n\n>#### tags : ")
+      file.write("---\n\n>#### tags : ")
       for tag in tags:
         tag = tag.replace("\n","")
         if tag not in dict:
           dict["tags"][tag] = {}
         dict["tags"][tag][title] = post
-        content.write("[{e}](post-index.html#{e}) ".format(e=tag))
-      content.write("\n\n")
+        file.write("[{e}](post-index.html#{e}) ".format(e=tag))
+      file.write("\n\n")
 
-      content.close()
+      file.close()
         
       json_file.seek(0)
       json_file.write(json.dumps(dict))
