@@ -34,8 +34,8 @@ with open(bkIndexFile, "w") as baked_index:
 
   """)
   for post in posts:
-    with open(post, "r") as file:
-      title = file.readline().replace('# ', "")
+    with open(post, 'r') as file:
+      title = file.readline()#.replace('# ', "")
       file.close()
     with open(post, "a") as file:
       print("Title is {a}, file is {e}".format(a=title, e=post))
