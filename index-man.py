@@ -87,7 +87,7 @@ with open(bkIndexFile, "w") as baked_index:
 
             for post in dict["date"][year][month][day]:
 
-              baked_index.write("<li><a href=%s>%s</a></li>" % (dict["date"][year][month][day][post],title))
+              baked_index.write("<li><a href=%s>%s</a></li>" % (dict["date"][year][month][day][post].replace(".md", ".html").removeprefix("raw/"),title))
 
             baked_index.write("</ul>")
             baked_index.write("</div>")
