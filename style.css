@@ -94,6 +94,12 @@ pre {
   margin-left: 2.5%;
   margin-right: auto;
 }
+pre code {
+  background: var(--codebg);
+  color:olivedrab;
+  font-size: 14px;
+  font-family: monospace;
+}
 
 hr {
   height: 3px;
