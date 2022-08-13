@@ -1,6 +1,8 @@
 # Assembly Basics ITA
 
-_The following is a document originally made to help some classmates of mine understand the assembly language a bit better (and it also serves the purpose of notes in my case); if you somehow stumble upon this, please leave this page and move on with your day._
+_The following is an incomplete document originally made to help some classmates of mine understand the assembly language a bit better (and it also serves the purpose of notes in my case); if you somehow stumble upon this, please leave this page and move on with your day._
+
+_There are some voluntary inaccuracies in my explanation, stemming mostly from comparison with the C++ language, the only other language taught on the 3rd year course._
 
 Per il resto di voi coglioni:
 
@@ -8,11 +10,10 @@ Per il resto di voi coglioni:
 
 ---
 
-# Assembly
-
 ## Alcune info generali:
 
 - questo linguaggio non è Case-Sentitive (ergo non presta attenzione a maiuscolo o minuscolo)
+- I commenti sono introdotti da `;` (punto e virgola)
 - si possono inserire tre tipi di numeri in assembly:
 - - Decimali, immettendo semplicemente il valore oppure accompagnandolo con una `d`
 
@@ -21,6 +22,10 @@ Per il resto di voi coglioni:
 - - Esadecimali, immettendo il valore accompagnato da una `h`:
 
 - - - Esempio dichiarando una variabile: `var db 10h` (10h = 16)
+  
+- - Binari, immettendo la rappresentazione binaria accompagnata da `b`:
+
+- - - Esempio: `var db 0110b` (0110 = 6)
 
 ## Dichiarazioni
 
@@ -97,8 +102,6 @@ Nelle istruzioni seguenti:
 - - L, per Less, di meno
 
 - - E, per Equals, Equivalente
-
-Le istruzioni:
 
 ### Base
 

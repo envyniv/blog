@@ -4,21 +4,16 @@ from sys import argv
 import json
 from datetime import datetime
 from os.path import exists
-from copy import deepcopy
-
-#mfw this script is here just because dicts in bash are not nice :(
 
 # TODO: fix title, line 29
-# TODO: title in index
-# 
 
 bkIndexFile = "baked/post-index.html"
 
 stylefile   = "style.css"
 
-y  = datetime.now().strftime("%Y") #int(argv[1])
-m = datetime.now().strftime("%m") #int(argv[2])
-d   = datetime.now().strftime("%d") #int(argv[3])
+y  = datetime.now().strftime("%Y")
+m = datetime.now().strftime("%m")
+d   = datetime.now().strftime("%d")
 
 posts = []
 for arg in argv:
@@ -43,7 +38,7 @@ with open(bkIndexFile, "w") as baked_index:
   for post in posts:
     with open(post, "a+") as content: # get post title
       title = content.readline().rstrip().replace("# ", "")
-      print(title)
+      print("Title is {a}, file is {e}".format(a=title, e=post))
       index = argv[1]
 
       json_file = open(index, "r+")
@@ -88,7 +83,7 @@ with open(bkIndexFile, "w") as baked_index:
           for day in dict["date"][year][month]:
 
             dayString = datetime(int(y), int(m), int(d)).strftime("%A")
-            baked_index.write("<div><b><a name=%s-%s-%s>%s</a></b>" % (year, month, day, dayString))
+            baked_index.write("<div><b><a name=%s-%s-%s>%s %s</a></b>" % (year, month, day, dayString, day))
             baked_index.write("<ul>")
 
             for post in dict["date"][year][month][day]:
