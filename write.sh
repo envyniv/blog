@@ -35,7 +35,7 @@ if test -f "$FILE.md"; then
     echo "Something went wrong with the python script - Operation interrupted"
     exit 1
   fi
-  perl ./Markdown.pl raw/$FILE.md > baked/$FILE.html
+  perl ./Markdown.pl raw/$FILE.md > $FILE.html
  echo "
 <!DOCTYPE html>
 <html>
@@ -47,13 +47,13 @@ if test -f "$FILE.md"; then
   </head>
   <body>
     <embed type='text/html' src=header.html width=100% height=250px>
-    <div id=rcorners>" | cat - baked/$FILE.html > temp && mv temp baked/$FILE.html
+    <div id=rcorners>" | cat - $FILE.html > temp && mv temp $FILE.html
 echo '    </div>
     <embed type="text/html" src=footer.html width=100% height=100%>
   </body>
-</html>' >>baked/$FILE.html
+</html>' >>$FILE.html
   rm index.html #clear symlink
-  ln -s baked/$FILEBAKE.html index.html
+  ln -s $FILE.html index.html
 else
   echo "$FILE.md not found, operation cancelled. Did you save?"
 fi

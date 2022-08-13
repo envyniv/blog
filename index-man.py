@@ -5,9 +5,7 @@ import json
 from datetime import datetime
 from os.path import exists
 
-bkIndexFile = "baked/post-index.html"
-
-stylefile   = "style.css"
+bkIndexFile = "post-index.html"
 
 y  = datetime.now().strftime("%Y")
 m = datetime.now().strftime("%m")
@@ -37,7 +35,7 @@ with open(bkIndexFile, "w") as baked_index:
     with open(post, 'r') as file:
       title = file.readline().rstrip().removeprefix("# ")
       file.close()
-      print("Title is {a}, file is {e}".format(a=title, e=post))
+      #print("Title is {a}, file is {e}".format(a=title, e=post))
     with open(post, "a") as file:
       
       index = argv[1]
@@ -104,7 +102,7 @@ with open(bkIndexFile, "w") as baked_index:
           baked_index.write("<p>%s</p>" % (dict["tags"][tag]["💌"]))
         baked_index.write("<div class=grid>")
         for post in dict["tags"][tag]:
-          baked_index.write("<div><a href='%s'>%s</a></div>" % (dict["tags"][tag][post].replace(".md", ".html").replace("raw/", "baked/"), title))
+          baked_index.write("<div><a href='%s'>%s</a></div>" % (dict["tags"][tag][post].replace(".md", ".html").removeprefix("raw/"), title))
         baked_index.write("</div>")
       baked_index.write("</html>")
       baked_index.close()

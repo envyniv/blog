@@ -20,7 +20,7 @@ if test -f "$1"; then
   fi
   TITLE=$(head -n 1 raw/$FILE.md)
   TITLE=${TITLE#@(# )}
-  perl ./Markdown.pl raw/$FILE.md > baked/$FILE.html
+  perl ./Markdown.pl raw/$FILE.md > $FILE.html
   echo "
   <!DOCTYPE html>
   <html>
@@ -32,11 +32,11 @@ if test -f "$1"; then
     </head>
     <body>
       <embed type='text/html' src=header.html width=100% height=250px>
-      <div id=rcorners>" | cat - baked/$FILE.html > temp && mv temp baked/$FILE.html
+      <div id=rcorners>" | cat - $FILE.html > temp && mv temp $FILE.html
   echo '    </div>
       <embed type="text/html" src=footer.html width=100% height=100%>
     </body>
-  </html>' >>baked/$FILE.html
+  </html>' >>$FILE.html
   rm index.html #clear symlink
-  ln -s baked/$FILE.html index.html
+  ln -s $FILE.html index.html
 fi
