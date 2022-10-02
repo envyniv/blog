@@ -1,0 +1,13 @@
+# GitHub links (issue, project, user).
+(\S+):(\s+)@gh#([0-9]+)                   https://github.com/\1/\2/issues/\3
+(\S+):(\s+)@gh                            https://github.com/\1/\2
+(\S+)@gh                                  https://github.com/\1
+
+# post direct link. example 2022-223@0223^23
+([0-9]+)-([0-9]+)@([0-9]+)\^([0-9]+)   \1-\2_\3-\4.html
+
+# link to a tag on the index page.
+(\s+)@i                                  post-index.html#\1
+
+#link to another page to the site eg project pages, etc
+(\s+)@site                               https://envyniv.github.io/\1

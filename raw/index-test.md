@@ -1,10 +1,6 @@
-# (Trying) Adding a way to browse blog posts!
-
-_In this post I detail some of the additions to the site._
-
-###### [2022 08 13](post-index.html#2022-08-13) by [envyniv](mailto:envy67@protonmail.ch)
-
----
+title: (Trying) Adding a way to browse blog posts!
+tags: meta,test,update
+syn: In this post I detail some of the additions to the site.
 
 While the old way of browsing the site (not doing so) and interacting with the website
 (not doing so, either)
@@ -32,12 +28,8 @@ I really need to figure out how to declare colors as variables in the css file.
 
 I'm sick of typing `#420069` for the 10.000th time
 
-`NOTE:` the python script has gained 500% `for X in Y:`-ness. I kinda need to fix that.
+`NOTE:` the python script has gained 500% `for X in Y:`-ness-- I kinda need to fix that.
 
 Either I end up fixing it or in a couple of years i'm gonna have to wait for the heat
 death of the universe for the damn index page to compile.
-
----
-
->#### tags : [blog](post-index.html#blog) [test](post-index.html#test) [feature](post-index.html#feature) [update](post-index.html#update) 
 

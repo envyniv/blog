@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Major Blog Revamp!</title>
+    <link rel=icon type='image/svg+xml' href=favicon.svg>
+    <link rel=icon type='type=image/png' href=favicon.png>
+    <link href=style.css rel=stylesheet type='text/css'>
+    <base target="_blank">
+  </head>
+  <body>
+    <embed type='text/html' src=header.html width='100%' height='250px'>
+<div class=secs><h1>Table of Contents</h1><h1> <a target="_parent" href=#misc-minor-changes>Misc minor changes</a> </h1>
+<h1> <a target="_parent" href=#posting-changes>Posting changes</a> </h1>
+<h2> <a target="_parent" href=#tags-and-where-to-find-them>Tags and where to find them</a> </h2>
+<h1> <a target="_parent" href=#sections>Sections</a> </h1>
+<h1> <a target="_parent" href=#future-changes>Future changes</a> </h1>
+<h1> <a target="_parent" href=#until-next-time>Until next time</a> </h1>
+</div><div id=rcorners style="margin-left: 7%; width: 60%; margin-right: 30%"><h1 id="major-blog-revamp">Major Blog Revamp!</h1>
+
+<h6 id="posted-on-2022-10-02post-indexhtml2022-10-02">Posted on <a href="post-index.html#2022-10-02">2022 10 02</a></h6>
+
+<blockquote>
+  <h4 id="tags-updatepost-indexhtmlupdate-metapost-indexhtml-meta-testpost-indexhtml-test-code-divepost-indexhtml-code-dive">tags: <a href="post-index.html#update">update</a> <a href="post-index.html# meta"> meta</a> <a href="post-index.html# test"> test</a> <a href="post-index.html# code-dive"> code-dive</a></h4>
+</blockquote>
+
+<p><em>Just revamped the blog, here are some changes.</em></p>
+
+<hr />
+
+<h1 id="misc-minor-changes">Misc minor changes</h1>
+
+<p>It's been a while since I last posted, I've taken this time to revamp how this shithole operates:</p>
+
+<p>First off, I've completed the port to python, it ended up being easier than I thought it would be.</p>
+
+<p>Second off, from now on the author's name won't be displayed anymore, mostly because I'm the sole owner of this blog, and because it relied on improper operations, like using <code>subprocess.run()</code> to get the username straight from git.</p>
+
+<h1 id="posting-changes">Posting changes</h1>
+
+<p>I've also changed how posting works. Instead of having to write a brand new file from scratch each time, now I just feed the generator script a pre-existing markdown file, making testing easier and avoiding all complications that may arise from third party utilities.</p>
+
+<h2 id="tags-and-where-to-find-them">Tags and where to find them</h2>
+
+<p>Being that tags now work "properly", I also need a way to add descriptions to said tags, to display on the index page. Thus I've added <em>another</em> file, just for that! It looks like this:</p>
+
+<pre><code>my-tag-name-here
+This is a very cool tag and this is its description to be displayed in the index page.
+
+my-other-tag
+This tag fucking sucks
+</code></pre>
+
+<p>I've gone and fixed all remaining indexing bugs.</p>
+
+<h1 id="sections">Sections</h1>
+
+<p>Sections should now work properly.</p>
+
+<h1 id="future-changes">Future changes</h1>
+
+<ul>
+<li>Make html baking for the index page faster (add onto the file, don't rewrite it from scratch)</li>
+<li><ul>
+<li>Overall clean up <code>bake_index()</code></li>
+</ul></li>
+<li>Make the baked index look prettier</li>
+<li>Make 404 page look prettier</li>
+</ul>
+
+<h1 id="until-next-time">Until next time</h1>
+
+<p>Overall, as miniscule this project is, it keeps being a learning experience, and an exercise of my patience.</p>
+
+<p>Despite this, I still have to move my code to the <code>argparse</code> module.</p>
+
+<p>Until next time, envy.</p>
+</div>
+    </div>
+      <embed type="text/html" src=footer.html width='100%' height='100%'>
+    </body>
+  </html>

@@ -1,10 +1,6 @@
-# TIL: How to bodge a blog from scratch
-
-_Some of my shenanigans while trying to have everything work the way it should._
-
-###### [2022 08 13](post-index.html#2022-08-13) by [envyniv](mailto:envy67@protonmail.ch)
-
----
+title: TIL: How to bodge a blog from scratch
+tags: meta,test
+syn: Some of my shenanigans while trying to have everything work the way it should.
 
 Hello, and welcome to the first serious post on this blog of mine! I'm gonna cut to the chase and talk a bit about the behind the scenes.
 
@@ -39,45 +35,3 @@ I plan on eventually<sup>TM</sup> porting `index-man` into bash, but for now...
 I'll just focus on fixing my website. And maybe keep working on [Last Hope](https://envyniv.github.io/Project-Hope/).
 
 ~~Hopefully those two html tags i used for a joke don't break the whole thing~~
-
-## Edit
-
-Funnily enough, as soon as I saved and wrote tags, the whole thing broke. Turns out I didn't write the script I use in my aliases properly. Should be fixed.
-
-## Edit 2
-
-Above happened 15 more times. I hate everything
-
-## Edit 3
-
-Refactoring some stuff - I think i broke something
-
-    {
-      "tags": {
-        "til": {
-          "{": "raw/post-index.json"
-        },
-        "blog": {
-          "{": "raw/post-index.json"
-        },
-        "test": {
-          "{": "raw/post-index.json"
-        }
-      },
-      "by-year": {
-        "<attribute 'year' of 'datetime.date' objects>": {
-          "<attribute 'month' of 'datetime.date' objects>": {
-            "<attribute 'day' of 'datetime.date' objects>": {
-              "{": "raw/post-index.json"
-            }
-          }
-        }
-      }
-    }
-
-🤔
-
----
-
->#### tags : [blog](post-index.html#blog) [test](post-index.html#test) 
-
