@@ -7,21 +7,21 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Get code
         uses: actions/checkout@v4
 
-      - name: Publish org to html
-        run: ./orgpublish.sh
-        shell: bash
-
       - name: Install emacs
         uses: purcell/setup-emacs@master
         with:
           version: '28.1'
+          
+      - name: Publish org to html
+        run: ./orgpublish.sh
+        shell: bash
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
