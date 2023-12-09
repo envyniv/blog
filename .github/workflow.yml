@@ -1,0 +1,32 @@
+name: Build blog with org-mode, deploy to pages
+
+on:
+  push:
+    branches:
+      - pages  # Set a branch to deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Publish org to html
+        run: ./orgpublish.sh
+        shell: bash
+
+      - name: Install emacs
+        uses: purcell/setup-emacs@master
+        with:
+          version: '28.1'
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: pages
+          publish_dir: /tmp/emacs-build/blog_out

@@ -1,0 +1,307 @@
+#+title: Dr. Emacsen - or How I Found The Perfect Text Editor
+#+subtitle: Amongst other ramblings on: freedom, propaganda, uhhhh...
+#+description: In this blogpost I detail some of my personal experiences with Linux, FLOSS, and my process of looking for the text editor that suits my needs.
+#+date: 2023-12-07
+#+filetags: emacs text lisp rant linux foss emacsen
+
+* Linux and the UNIX philosophy
+
+** On Linux, FLOSS, and Freedom
+My first ever OS, at the age of 3, was [[https://en.wikipedia.org/wiki/Linpus_Linux][Linpus Linux]] on my very own [[https://en.wikipedia.org/wiki/Acer_Aspire_One#Linux][Acer Aspire One]], which was a gift from my father as he noticed I was getting increasingly interested in computers from a tender age.
+
+Now, my daily-driver OS is Arch Linux. I've been using exclusively Linux ever since the 2020 pandemic lockdown, and I don't plan on going back.
+
+Using Linux, I firmly believe, has significantly increased my tech-literacy and passion for technology, and I urge readers who may have never used it, to try it out.
+
+I'm not gonna say it's going to be simple - because it isn't.
+
+You will find initially incomprehensible errors and warnings - you will tread in unknown territory - but consider this:
+
+Whenever you learn something new, it's never 'simple', it might be intuitive to some, but never 'easy'.
+
+But in the end, if you stick through with it, your perception of the world *will* be changed drastically.
+
+No longer will you accept Windows' downfalls, and you will slowly find yourself believing more and more into Open Source software.
+
+In a way, using Linux usually doesn't simply involve a utilitarian function, instead it molds your view on what technology *can be*.
+
+** The UNIX philosophy
+
+Now that that philosophical rant is over - let's talk about the UNIX philosophy.
+
+Simply put, it's a way of designing software so that it only accomplishes one task - that piece of software will then be complemented by other utilities that also accomplish a single function.
+
+Not only is this philosophy good because it allows the programmer to work on one feature at a time, but because it allows things like the (L/X)AMPP stack (Linux, Apache, MariaDB, PHP, Perl) to exist.
+
+When multiple utilities absolve one function, they can then be packaged together with "minimal" maintenance to form a more complex piece of software that acts like a suite of such tools.
+
+*tl;dr: program do one thing well, is good*
+
+* Analysis Paralysis
+
+/[[https://en.wikipedia.org/wiki/Analysis_paralysis][Analysis Paralysis]] is an expression referring to the phenomenon where an individual is unable to make a choice when overanalyzing a problem posed to them. This is most commonly seen when a vast array of choices are presented to someone not familiar with a topic./
+
+Since text editing is such a common task in the world of computing, numerous tools have been built over the years to accomplish such task in the best way possible. Here are some of the more notorious ones I've come across in my text editing adventure.
+** Vim
+#+begin_quote
+how the hell do i quit vim
+#+end_quote
+
+Vim is one of the most famous (and oldest) text editors in the FOSS world.
+
+I'm not gonna talk at length about it;
+
+Basically its name comes from "Vi improved", seeing as it is, at its core,
+an improved clone of [[https://en.wikipedia.org/wiki/Vi][Vi]].
+
+It's got its own set of  infamous keybindings and configuration/scripting language, called `vimscript`
+*** Neovim
+Fork of Vim with Lua support amongs many goodies - essentially what to use if you want a modern text editor based on vim.
+** Emacs
+[[https://en.wikipedia.org/wiki/Emacs][As described by Wikipedia]] - fundamental pillar of modern society - Emacs are a family of extensible text editors.
+
+However - That's not the definition we are going to be using today.
+
+*I want to make it abundantly clear; Any mention of Emacs in this context refers to GNU Emacs. For the family of text editors, I will be using /Emacsen/.*
+
+GNU Emacs is, like Vim, one of the oldest text editors in the FOSS space. It is derived from a series of previous iteration of the same "programmable text editor" concept and is mostly built on [[https://en.wikipedia.org/wiki/Emacs_Lisp][Emacs Lisp]], Its own Lisp dialect.
+
+It's got its own set of keybindings, much like Vim, but you can also switch to CUA Mode, or use [[https://www.emacswiki.org/emacs/ErgoemacsMode][ergoemacs-mode]] to use the more common Ctrl+x, Ctrl+z, Ctrl+V, etc.
+
+It's a pain to set up from scratch.
+
+It is also heavier than most text editors around, for good reason however; it comes packaged with
+- a fucking web browser
+- a fucking email client
+- basically anything you can think of is either already included or easily installable.
+
+Also, unlike other editors, it's divided in a Server-Client infrastructure, which opens many advanced editing possibilities previously unthinkable.
+
+For example, you can have systemd start the server, then open both a terminal client and graphical client.
+
+*** Notable Emacsen
+
+*** Spacemacs
+Emacs distribution with goodies
+
+*** DOOMEmacs
+
+*** Easymacs
+
+** Nano
+** Micro
+** Visual Studio Code
+** Pulsar (Atom Fork)
+** Eclipse
+** Kwrite/Kate/Kdevelop
+A minimal text editor/IDE crossover by the folks at KDE. Really impressive, used to be my default for a while.
+As I understood it, Kwrite is both a library and a stand-alone application.
+
+When used as a library, it powers all text editing in KDE, while the application on its own is a minimal although powerful text editor that is fine for minimal usage.
+** BlueJ
+Horrible IDE made for a horrible programming language (Java).
+
+My High School uses it in the math lab.
+
+** DevC++
+Simplistic IDE made for C++ development. Mostly education-focused. Not really noteworthy.
+
+** Sublime
+Extensible, minimal text editor. Not libre so I don't really care.
+
+** JetBrains IDEs
+Multiple IDEs, all limited to just one language, non libre; Don't care.
+
+** GNOME Builder
+IDE by the GNOME folks, mainly focused on GNOME development, but extensible. Don't use GTK software nor agree with GNOME's philosophy of development, so I don't really care for it.
+
+
+* What I'm looking for in a text editor
+
+After having come across so many text editors, one such as myself might find themselves in a state of confusion, with the thinking process looking something like:
+
+#+begin_quote
+Do I wanna install Emacs? It seems pretty cool...
+
+/Emacs package size is 120MB, Micro is 12MB/
+
+No way!
+#+end_quote
+
+As such, one may find themselves acting like a methhead, going back and forth pondering which text editor is the right choice for their needs.
+
+However;
+
+I'm really picky when it comes to text editors, perhaps because I've used so many over the years, or maybe because I've got a /lot/ of free time on my hands.
+
+Over the years, I've established some criteria for deciding whether a text editor is good enough for me to invest time in using it.
+
+Here are my criteria.
+
+** Is it lightweight?
+
+In general, a text editor shouldn't be occupying that much space.
+
+/Emacs is already losing/
+
+** Is it easily configurable?
+
+Can I easily customize the behaviour of the chosen text editor, or do i need to recompile the damn thing every single time?
+
+/I'm looking at y'all, [[https://suckless.org/][suckless]]. How 'bout you suck my nuts?/
+
+#+caption: i feel so real for that,,, fuck suckless,,,
+[[./assets/fire-writing.gif]]
+** Does it allow for user-defined behaviour?
+
+I'm a programmer by trade. A programmer with lots of free time, at that - I want to be able to extend my chosen editor's functionalities with plugins and/or my own code.
+
+/Emacs, Micro, and Neovim are perfect for this./
+
+** Does it *not* rely on web technologies?
+
+As good as Visual Studio Code and (the now defunct) Atom are, using them on an underpowered machine (like my laptop) means terrible performance and turning aforementioned machine into a space heater.
+
+Also every desktop app being just an electron/embedded web browser greatly pisses me off.
+
+** BONUS: can it be used in a terminal?
+
+You use a text editor when editing text. You know when text editing is *really* useful? When you've just fucked your window manager config beyond recovery and now you're stuck on the TTY without X and thus, any semblance of graphical output.
+
+So editing stuff while on the CLI is very useful, methinks - especially when in dire situations such as the one described above.
+
+Also - for what /most/ text editors do, they don't even really /need/ a full-on graphical stack. After all they just display text, and if you're really treating yourself with a /fancy/ text editor, it's gonna highlight important bits of code with a series of colors pulled from some list - all to aid the programmer distinguish between different kinds of literals, etc. Things that can be (and have been, see [vim], [micro]) done in a terminal/TTY interface without compromising on features.
+
+that being said, you're never gonna catch me using [[https://www.gnu.org/software/ed/manual/ed_manual.html][ed]].
+
+** Is it easily accessible?
+
+Since i'm used to switching tools and software all the time, i'm most likely not gonna focus on tools that have esoteric keybindings or usage methods
+
+** Does it do its job well?
+Straightforward point. It is /a/ text editor, or a *good* text editor?
+** Is it libre?
+I'm building a libre-/life/, goddamnit! I *need* my text editor to be libree, too!
+** Can I easily use it for multiple programming languages?
+
+This usually wouldn't be a concern, but lately multiple IDEs that are exclusive to a single have been popping up, or maybe they're usable with other languages than the default, but require roundabout setups and general loss of sanity.
+
+/case and point, Eclipse/.
+
+** BONUS: can it boot into a 'lighter' mode if i configure it to?
+
+I like IDEs, believe me, /I do/.
+
+However,
+
+There are times where I don't need *the entire strength of the irate Christian God* to edit a singular file, y'feel me?
+
+Loading plugins on start up takes a long time and slows down any machine to a hog, so I thought:
+
+#+begin_quote
+it would be *'ery* nice if my text editor could be booted in a mode where no plugins are loaded.
+#+end_quote
+* You are (not) immune to propaganda
+
+/Propaganda is the diffusion of information to influence public opinion. Emacs has very present propaganda in all FOSS spaces./
+
+Now then, with all the conditions I've set - One'd expect me to go for /Micro/, right?
+
+Well, no. I went straight to Emacs and ditched Micro.
+
+Don't get me wrong. Micro is a *great* text editor with even greater potential.
+
+That being said - Go to YouTube, PeerTube, or anywhere where people upload videos for the world to see.
+
+Now look up Emacs. Thousands of results'll pop up right in front of you, for you to watch and learn from.
+
+Now then, do the same with Micro. Every FOSS-scene creator's going to have a video looking into it and praising it, but no dense community has yet formed around this editor.
+
+Due to this fact, the plugin ecosystem is feeble as well - you can easily get Micro to behave more like an IDE with some of the plugins included in the database, but even then, if you want something more complex, like [[org-mode][org-mode]], you're on your own, and will have to reimplement such functionality yourself.
+
+* What doors Emacs has opened for me
+** Learning Lisp
+
+I've always kind of had a fascination for simplistic programming languages, which eventually lead me to discovering Lisp.
+
+It's a language family where every operation is a function, for example, an addition:
+
+- Will look like this in C
+  #+begin_src c
+    3 + 7;
+  #+end_src
+
+- And will instead look like this in Lisp
+  #+begin_src clisp
+    (+ 3 7)
+  #+end_src
+
+Essentially, since Emacs is written and configured in Emacs Lisp, poking and prodding at the code will help me in learning the language.
+
+** <<org-mode>>org-mode
+
+Emacs, by default, ships with Org-mode.
+
+In short, it's a really powerful text editing 'plugin' that allows you to:
+- better document code
+- keep track of appointments, events, and deadlines, acting as a calendar of sorts
+- manage your very own TODO list
+- export org-mode documents (.org files) into HTML, PDF, ODT, and many more formats
+- customize said exports with tons of settings and additions
+
+
+It's an amazing tool, and the fact it is free and /Free/ is outstanding.
+** Simplifing Infrastructure
+
+This blog is built on python and the [[https://github.com/trentm/python-markdown2][markdown2]] module.
+
+The workflow employed in posting something new boils down to something like this:
+- Write lengthy Markdown file containing post contents with a very specific header format containing title, tags, and a brief description.
+- Put file in select folder
+- Run script
+- Script goes through all the markdown files present in the folder, spits out HTML equivalent
+- Examine output and concatenate extra HTML for stuff like styling (CSS), header, and sections/table of contents
+- push changes to git.
+
+And while some things could certainly be drastically improved with the usage of [[https://github.com/features/actions][GitHub Actions]], I just didn't know while building this blog for the first time.
+
+So - have you got all that? Great!
+
+-
+
+*because all that was of no use.*
+
+-
+
+Yeah - y'know the whole spiel I had earlier about how cool [[org-mode][org-mode]] is?
+
+Turns out; You can use it to work on blogs too!
+
+And it's also way less finnicky than my previous setup!
+
+What's more is, you're seeing its results *right now* (/right now, Right. Now./)
+
+How's it look? cool, eh? /I sure think it does/.
+
+** Using LaTeX
+Being a nerd who takes notes, i have found myself in need of jotting down some math in a reasonably readable digital format an embarassing number of times.
+
+Guess what, org-mode (and emacs by extension) does that too.
+
+By default.
+
+* Some closing thoughts
+
+Overall, this was... *an* experience.
+
+Trying text editors, switching between them, documenting myself on their functionalities; Although some less than others - see Vim.
+
+These experiences and their plausibility are, I feel, anothe r strength of the Linux operating system, and, more in general, of the PC platform. With how locked down MacOS is, similar experiences just can't be had.
+
+Also, the jab at suckless is just for fun.
+
+* Sources
+- https://en.wikipedia.org/wiki/Emacs
+- https://www.emacswiki.org/emacs/Emacsen
+- https://micro-editor.github.io/
+- https://en.wikipedia.org/wiki/Vim_(text_editor)

@@ -1,0 +1,143 @@
+#+title: Le basi di Assembly
+#+filetags: code-dive school lang-asm ita sections draft
+#+language: it
+#+description: The following is an incomplete document written last year, originally made to help some classmates of mine understand the assembly language a bit better; There are some voluntary inaccuracies in my explanation, stemming mostly from comparison with the C++ language, the only other language taught in the 3rd year course.
+#+date: 2021-12-10
+
+* Preambolo
+- questo linguaggio non è Case-Sentitive (ergo non presta attenzione a maiuscolo o minuscolo)
+  
+I commenti sono introdotti da `;` (punto e virgola)
+#+begin_src asm
+	  .model small
+	  .stack
+	  .extra
+	  .code
+  start:
+	  mov ah, 4Ch
+	  int 21h       ;Questo è un commento
+	  end start	
+#+end_src
+
+* Dichiarazioni
+
+** Variabile - *nome tipo valore*
+
+| *tipo* | Descrizione                                      |
+|------+--------------------------------------------------|
+|      |                                                  |
+| ~DB~   | Declare Byte, la variabile occupa 8 bit.         |
+| ~DW~   | Declare Word, la variabile occupa 16 bit.        |
+| ~DD~   | Declare Double Word, la variabile occupa 32 bit. |
+
+| *valore*     | Descrizione                                                               |
+|------------+---------------------------------------------------------------------------|
+| ~?~          | per indicare che questa variabile non ha un valore definito;              |
+| ~< numero >~ | Seguito da `b` se espresso in binario o da `h` se espresso in esadecimale |
+                                                                          |
+
+Ovvio che nomevar *non* può contenere:
+- parentesi (~(){}[]~)
+- punteggiatura (~!,.?~)
+- underscore (~_~)
+
+*** Esempio
+#+begin_src asm
+  decimale1 db 10
+  decimale2 db 10d     ;uguale alla precedente linea
+
+  esadecimale db 10h   ;(10h = 16)
+
+  binario db 0110b     ;(0110 = 6)	
+#+end_src
+
+** Etichette
+#+begin_src asm
+  etichetta1:
+    ;. . .
+    end etichetta1
+#+end_src
+
+*** Loop
+#+begin_src asm
+  ilmioloop:
+    ;. . .
+    loop ilmioloop
+#+end_src
+appena il processore giungerà a ~loop~, ripeterà il codice associato all'etichetta ~ilmioloop~ per ~CX~ volte
+
+** Procedure
+
+* Varie Istruzioni
+| Sintassi     | Descrizione Breve                                                                    |
+|--------------+--------------------------------------------------------------------------------------|
+| ~INC op~       | simile ad ~i++~ di C++, incrementa *op*                                                  |
+| ~DEC op~       | simile ad i--~ di C++, decrementa *op*                                                 |
+| ~MUL op~       | Registro AX * *op*                                                                     |
+| ~DIV op~       | divide AX per *op* Resto in ~AH~, Quoziente in ~AL~                                        |
+| ~ADD op1, op2~ | *op1* + *op2*                                                                            |
+| ~SUB op1, op2~ | *op1* - *op2*                                                                            |
+| ~LEA op1, op2~ | copia l'indirizzo di *op2* in *op1*                                                      |
+| ~MOV op1, op2~ | *op1* = *op2*                                                                            |
+| ~INT op~       | fa una richiesta al S.O.                                                             |
+| ~CMP op1, op2~ | compara *op1* in funzione di *op2*, si usa per condizionali insieme alle istruzioni di salto |
+
+* Istruzioni di salto
+~op~ è l'etichetta a cui il programma salterà se la data condizione è vera.
+
+~op1~ ed ~op2~ si riferiscono a ~CMP op1, op2~
+
+| Lettera            | Traduzione                               |
+|--------------------+------------------------------------------|
+| J                  | Salta se                                 |
+| N / (non presente) | CMP *op2* non è ... / *op2* è ...            |
+| A / G              | ... Maggiore di *op1* / (numeri con segno) |
+| B / L              | ... Minore di *op1* / (numeri con segno)   |
+| C                  | ...                                      |
+| E                  | ... Uguale a *op1*                         |
+
+** Esempio:
+#+begin_src asm
+				;. . .
+  CMP 3, 2	
+  JA qui         ; se 2 è maggiore di 3, allora salta a "qui"
+  JNE bordello   ; se 2 e 3 non sono uguali, salta a "bordello"
+			  ;. . .
+#+end_src
+
+* Nello specifico
+
+** MOV
+
+Copia ~op2~ in ~op1~
+
+*op2* da prefacciare con @ quando si sposta `DATA` in `AX`
+
+Valori di AH fino ad ora usati (~mov AH, < uno di questi >~):
+- ~02h~: stampa un carattere contenuto in DL
+- ~01h~: acquisisce un singolo carattere, non è necessario premere invio.
+- ~09h~: stampa il contenuto di DX, solitamente una stringa che termina con ~$~
+- ~4Ch~: termina il programma se seguito da ~int 21h~
+  
+** INT
+
+_Manda una richesta al sisyema operativo. Ha un operatore._
+
+Valori di *op* fino ad ora a noi noti:
+- ~21h~: legge il contenuto di AH
+
+
+* Pezzi di programma
+
+** Cicli
+
+*** For
+CX verrà decrementato ad ogni ripetizione, non è necessario decrementarlo manualmente.
+
+#+begin_src asm
+	  mov cx, <numero ripetizioni loop>
+  prova:
+	  ;. . .
+	  loop prova
+#+end_src
+
