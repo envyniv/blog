@@ -4,13 +4,10 @@
 
 ;;; Code:
 
-(defvar get-project-directory
-  (file-name-directory (or load-file-name (buffer-file-name))))
-
 (setq org-publish-project-alist
-      '(("blog"
-	 :base-directory get-project-directory
-	 :publishing-directory "/tmp/emacs-build/blog_out/"
+      `(("blog"
+	 :base-directory ,(file-name-directory (or load-file-name (buffer-file-name)))
+	 :publishing-directory ,(concat get-project-directory ".out/")
 	 :base-extension "org"
 	 :exclude "index.org"
 	 :html-head "<link rel='icon' type='image/svg+xml' href='https://envyniv.github.io/favicon.svg' /><link rel='stylesheet' type='text/css' href='https://envyniv.github.io/style.css' /><link rel='icon' type='image/png' href='https://envyniv.github.io/favicon.png' />"

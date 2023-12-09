@@ -1,9 +1,6 @@
 name: Build blog with org-mode, deploy to pages
 
-on:
-  push:
-    branches:
-      - pages  # Set a branch to deploy
+on: [push]
 
 jobs:
   deploy:
@@ -28,5 +25,4 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: pages
-          publish_dir: /tmp/blog_out
+          publish_dir: ./out
