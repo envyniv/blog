@@ -10,7 +10,7 @@
 (setq org-publish-project-alist
       '(("blog"
 	 :base-directory get-project-directory
-	 :publishing-directory "~/blog_out/"
+	 :publishing-directory "/tmp/emacs-build/blog_out/"
 	 :base-extension "org"
 	 :exclude "index.org"
 	 :html-head "<link rel='icon' type='image/svg+xml' href='https://envyniv.github.io/favicon.svg' /><link rel='stylesheet' type='text/css' href='https://envyniv.github.io/style.css' /><link rel='icon' type='image/png' href='https://envyniv.github.io/favicon.png' />"
